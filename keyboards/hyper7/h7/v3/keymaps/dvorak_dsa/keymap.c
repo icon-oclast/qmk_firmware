@@ -735,7 +735,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
         send_string(SS_LCTL(SS_TAP(X_END)));
         return false;
       case H_7BIT:
-        send_string("[7BIT] key");
+        send_string("[BIT] key"); // as marked on this version of the keycap
         return false;
       case H_CIRCLE_SM:
         send_string("[CIRCLE_SM] key");

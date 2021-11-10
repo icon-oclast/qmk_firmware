@@ -370,7 +370,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * | F9  | F10 | TTY |LOCK |#|Begin| End | Symbol | Shift  |  ;  |  Q  |  J  |  K  |  X  |  B  |  M  |  W  |  V  |  Z  | Shift  | Symbol |  Up | End |#|  1  |  2  |  3  |  =  |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     * | F11 | F12 |Home | EOF |#|Prev |Next |7bit | Alt | Hyper  | Spr |  Ctrl  | Space |TRNS |  Del   |  Ctrl  | Spr  | Hyper  |Meta |Left |Down |Right|#| Del |  0  |  .  | Run |
+     * | F11 | F12 |Home | EOF |#|Prev |Next |Smol | Alt | Hyper  | Spr |  Ctrl  | Space |TRNS |  Del   |  Ctrl  | Spr  | Hyper  |Meta |Left |Down |Right|#| Del |  0  |  .  | Run |
      * `-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      *  Incomplete mappings
      *  r1: H_MACRO, H_TERMINAL, H_OVERSTRIKE, H_HOLD_OUTPUT, H_STOP_OUTPUT, H_CALL
@@ -735,7 +735,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
         send_string(SS_LCTL(SS_TAP(X_END)));
         return false;
       case H_7BIT:
-        send_string("[7BIT] key");
+        send_string("[SMOL] key"); // as marked on this version of the keycap
         return false;
       case H_CIRCLE_SM:
         send_string("[CIRCLE_SM] key");
