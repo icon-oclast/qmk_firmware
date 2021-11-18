@@ -32,10 +32,10 @@ enum unicode_names {
     STILE,
 
 // APL
-    N_ARY_LOGICAL_AND,
-    N_ARY_LOGICAL_OR,
-    N_ARY_INTERSECT,
-    N_ARY_UNION,
+    LOGICAL_AND,
+    LOGICAL_OR,
+    INTERSECT,
+    UNION,
     SUBSET_OF,
     SUPERSET_OF,
     FORALL,
@@ -170,10 +170,10 @@ const uint32_t PROGMEM unicode_map[] = {
     [STILE] = 0x2223,
 
 // APL
-    [N_ARY_LOGICAL_AND] = 0x22C0,
-    [N_ARY_LOGICAL_OR] = 0x22C1,
-    [N_ARY_INTERSECT] = 0x22C2,
-    [N_ARY_UNION] = 0x22C3,
+    [LOGICAL_AND] = 0x2227,
+    [LOGICAL_OR] = 0x2228,
+    [INTERSECT] = 0x2229,
+    [UNION] = 0x222A,
     [SUBSET_OF] = 0x2282,
     [SUPERSET_OF] = 0x2283,
     [FORALL] = 0x2200,
@@ -428,9 +428,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FT,      FT,      FT,       FT,       FT,                 FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
 
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,                    FT,                 FT,                 FT, X(N_ARY_INTERSECT), X(N_ARY_UNION), X(SUBSET_OF),X(SUPERSET_OF), X(FORALL),X(LEMNISCATE), X(THERE_EXISTS),      FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,                    FT,                 FT,                 FT, X(INTERSECT), X(UNION), X(SUBSET_OF),X(SUPERSET_OF), X(FORALL),X(LEMNISCATE), X(THERE_EXISTS),      FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,  X(UP_TACK), X(DOWN_TACK), X(RIGHT_TACK), X(LEFT_TACK), X(UPWARDS_ARROW),X(DOWNARDS_ARROW), X(LEFTWARDS_ARROW),X(RIGHTWARDS_ARROW), X(LEFTRIGHT_ARROW), X(PARTIAL_DIFFERENTIAL),       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,  X(LEFT_FLOOR), X(LEFT_CEILING), X(NOT_EQUAL_TO), X(ASYMPTOTICALLY_EQUAL_TO),X(NOT_ASYMPTOTICALLY_EQUAL_TO), X(LESS_THAN_OR_EQUAL),X(GREATER_THAN_OR_EQUAL),  X(N_ARY_LOGICAL_AND), X(N_ARY_LOGICAL_OR),       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,  X(LEFT_FLOOR), X(LEFT_CEILING), X(NOT_EQUAL_TO), X(ASYMPTOTICALLY_EQUAL_TO),X(NOT_ASYMPTOTICALLY_EQUAL_TO), X(LESS_THAN_OR_EQUAL),X(GREATER_THAN_OR_EQUAL),  X(LOGICAL_AND), X(LOGICAL_OR),       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT
     ),
     /* _GREEK: lower/upper case greek (needs shift modifier application for upper case chars) from codepage U0370.pdf \
