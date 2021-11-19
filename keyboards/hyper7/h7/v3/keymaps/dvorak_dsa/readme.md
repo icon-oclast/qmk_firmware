@@ -1,7 +1,7 @@
 
 # Dvorak layouts for the Hyper7
 
-Each of the keycap sets for the Hyper7 handle dvorak slightly differently, and so there are two separate keymaps for Dvorak. The biggest difference between them has to do with the APL layer.
+Each of the keycap sets for the Hyper7 handle dvorak slightly differently, and so there are two separate keymaps for Dvorak. The biggest difference between them has to do with the APL layer. The kat space cadet keys that were produced had a few additional differences from the upstream keymap and the layout here tries to match the actual key legends as closely as possible.
 
 Keyboard-layout-editor format files have been included for reference and to help visualize both of these keymaps.
 

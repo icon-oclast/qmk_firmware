@@ -295,7 +295,7 @@ enum custom_keycodes {
     H_CLEAR_INPUT,
     H_CLEAR_SCREEN,
     H_HOLD_OUTPUT,
-    H_STOP_OUTPUT,
+    H_STOP_INPUT,
     H_ABORT,
     H_BREAK,
     H_RESUME,
@@ -306,7 +306,7 @@ enum custom_keycodes {
     H_NETWORK,
     H_SYSTEM,
     H_REFRESH,
-    H_BUFFER,
+    H_BUFFERS,
     H_SQUARE,
     H_CIRCLE,
     H_TRIANGLE,
@@ -347,22 +347,22 @@ enum custom_keycodes {
 
     // main board r5
     H_EOF,
-    H_7BIT,
+    H_SMOL,
     H_CIRCLE_SM
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* _BASE: Base Layer(Default)
      * ,-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------.
-     * |   Help    |   Macro   |#| Terminal  |   Quote   | OverStrike| ClearInput|ClearScreen|HoldOutput | StopOutput|   Abort   |   Break   |  Resume   |#|   Call    |   RESET   |
+     * |   Help    |   Macro   |#| Terminal  |   Quote   | OverStrike| ClearInput|ClearScreen|HoldOutput | StopInput |   Abort   |   Break   |  Resume   |#|   Call    |   RESET   |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     * |   Local   |  Network  |#|  System   |  Refresh  |   Buffer  |   Square  |   Circle  | Triangle  |  Diamond  |   Repeat  |  Transmit |  Status   |#|  Suspend  |  CapsLock |
+     * |   Local   |  Network  |#|  System   |  Refresh  |   Buffers |   Square  |   Circle  | Triangle  |  Diamond  |   Repeat  |  Transmit |  Status   |#|  Suspend  |  CapsLock |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * | F1  | F2  |Close|Open |#|   Esc     |  ?  |  !  |  @  |  £  |  €  |  ¥  |  '  |  “  |  ”  |  '  |  _  |  <  |  >  |  |  |  {  |  }  | Complete  |#|  ^  |  %  |  #  |  $  |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * |###############################################################################################################################################################################|
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     * | F3  | F4  |Find |Write|#|Compose | "/± | :/~ |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  [  |  ]  |  \  | {/‹  | }/›  | Undo   |#|  ~  |  /  |  *  |  -  |
+     * | F3  | F4  |Find |Write|#|Compose | "/± | `/~ |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  [  |  ]  |  \  | {/‹  | }/›  | Undo   |#|  ~  |  /  |  *  |  -  |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * | F5  | F6  |Mark |Undo |#|Paste|  Cut   |Tab     |  '  |  ,  |  .  |  P  |  Y  |  F  |  G  |  C  |  R  |  L  |  /  |  =  | Bspace | Clear  |Begin|#|  7  |  8  |  9  |  +  |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -370,29 +370,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * | F9  | F10 | TTY |LOCK |#|Begin| End | Symbol | Shift  |  ;  |  Q  |  J  |  K  |  X  |  B  |  M  |  W  |  V  |  Z  | Shift  | Symbol |  Up | End |#|  1  |  2  |  3  |  =  |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     * | F11 | F12 |Home | EOF |#|Prev |Next |Smol | Alt | Hyper  | Spr |  Ctrl  | Space |TRNS |  Del   |  Ctrl  | Spr  | Hyper  |Meta |Left |Down |Right|#| Del |  0  |  .  | Run |
+     * | F11 | F12 |Home | EOF |#|Prev |Next |Smol | Alt | Hyper  | Spr |  Ctrl  | Space |TRNS | Space  |  Ctrl  | Spr  | Hyper  |Meta |Left |Down |Right|#| Del |  0  |  .  | Run |
      * `-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      *  Incomplete mappings
-     *  r1: H_MACRO, H_TERMINAL, H_OVERSTRIKE, H_HOLD_OUTPUT, H_STOP_OUTPUT, H_CALL
-     *  r2: H_LOCAL, H_NETWORK, H_SYSTEM, H_REFRESH, H_BUFFER, H_SQUARE, H_CIRCLE, H_TRIANGLE, H_DIAMOND, H_REPEAT, H_TRANSMIT, H_STATUS
+     *  r1: H_MACRO, H_TERMINAL, H_OVERSTRIKE, H_HOLD_OUTPUT, H_STOP_INPUT, H_CALL
+     *  r2: H_LOCAL, H_NETWORK, H_SYSTEM, H_REFRESH, H_BUFFERS, H_SQUARE, H_CIRCLE, H_TRIANGLE, H_DIAMOND, H_REPEAT, H_TRANSMIT, H_STATUS
      *  r3: H_COMPLETE
      *
      *  r1: H_FIND, H_WRITE
      *  r2: H_MARK
      *  r3: H_SELECT, H_DEBUG, H_LINE
      *  r4: H_TTY
-     *  r2: H_7BIT, H_CIRCLE_SM
+     *  r2: H_SMOL, H_CIRCLE_SM
      */
     [_BASE] = LAYOUT_h7v3_183(
-        H_HELP,            H_MACRO,           H_TERMINAL,           H_QUOTE,             H_OVERSTRIKE,            H_CLEAR_INPUT,           H_CLEAR_SCREEN,                 H_HOLD_OUTPUT,             H_STOP_OUTPUT,          H_ABORT,           H_BREAK,              H_RESUME,            H_CALL,              KC_NLCK,           //14
-        H_LOCAL,           H_NETWORK,         H_SYSTEM,             H_REFRESH,           H_BUFFER,                H_SQUARE,                H_CIRCLE,                       H_TRIANGLE,                H_DIAMOND,              H_REPEAT,          H_TRANSMIT,           H_STATUS,            H_SUSPEND,           KC_CLCK,           //14
+        H_HELP,            H_MACRO,           H_TERMINAL,           H_QUOTE,             H_OVERSTRIKE,            H_CLEAR_INPUT,           H_CLEAR_SCREEN,                 H_HOLD_OUTPUT,             H_STOP_INPUT,          H_ABORT,           H_BREAK,              H_RESUME,            H_CALL,              KC_NLCK,           //14
+        H_LOCAL,           H_NETWORK,         H_SYSTEM,             H_REFRESH,           H_BUFFERS,                H_SQUARE,                H_CIRCLE,                       H_TRIANGLE,                H_DIAMOND,              H_REPEAT,          H_TRANSMIT,           H_STATUS,            H_SUSPEND,           KC_CLCK,           //14
         KC_F1,   KC_F2,    H_CLOSE,  H_OPEN,  KC_ESC,               KC_QUES,    KC_EXLM, X(AT_SYMBOL),    X(GBP), X(EURO),        X(JPY),  X(BACKTICK),    X(DQUOTE_OPEN), X(DQUOTE_CLOSE), X(PRIME), KC_UNDS,       KC_LABK, KC_RABK,  X(PIPE), KC_LCBR,    KC_RCBR,  H_COMPLETE,          KC_CIRC,   KC_PERC,  KC_HASH,  KC_DLR,  //26
 
-        KC_F3,   KC_F4,    KC_FIND,  H_WRITE, KC_LEAD,  H_DOUBLE_QUOTE__PLUS_MINUS, H_COLON__TILDE,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,    KC_6,     KC_7,    KC_8,     KC_9,    KC_0,     KC_LBRC,  KC_RBRC,  KC_NUBS, H_L_BRACE__L_CHEVRON,  H_R_BRACE__R_CHEVRON,  KC_UNDO,    KC_TILD,   KC_SLSH,  KC_PAST,  KC_PMNS, //27
-        KC_F5,   KC_F6,    KC_EXLM,  KC_UNDO, KC_PASTE, KC_CUT ,  KC_TAB ,  KC_QUOT,     KC_COMM,     KC_DOT,     KC_P,     KC_Y,    KC_F,     KC_G,    KC_C,     KC_R,    KC_L,     KC_SLSH,  KC_EQL, KC_BSPC, KC_CLEAR, KC_HOME,                                                                 KC_P7,     KC_P8,    KC_P9,    KC_PPLS, //26
+        KC_F3,   KC_F4,    KC_FIND,  H_WRITE, KC_LEAD,  H_DOUBLE_QUOTE__PLUS_MINUS, KC_GRAVE,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,    KC_6,     KC_7,    KC_8,     KC_9,    KC_0,     KC_LBRC,  KC_RBRC,  KC_NUBS, H_L_BRACE__L_CHEVRON,  H_R_BRACE__R_CHEVRON,  KC_UNDO,    KC_TILD,   KC_SLSH,  KC_PAST,  KC_PMNS, //27
+        KC_F5,   KC_F6,    H_MARK,   KC_UNDO, KC_PASTE, KC_CUT ,  KC_TAB ,  KC_QUOT,     KC_COMM,     KC_DOT,     KC_P,     KC_Y,    KC_F,     KC_G,    KC_C,     KC_R,    KC_L,     KC_SLSH,  KC_EQL, KC_BSPC, KC_CLEAR, KC_HOME,                                                                 KC_P7,     KC_P8,    KC_P9,    KC_PPLS, //26
         KC_F7,   KC_F8,    KC_SELECT,H_DEBUG, MO(_FN), KC_NO,       MO(_APL), KC_A,     KC_O,     KC_E,     KC_U,     KC_I,    KC_D,     KC_H,    KC_T,     KC_N,    KC_S,  KC_MINS,  KC_ENT , H_LINE, H_PAGE,                                                           KC_P4,     KC_P5,    KC_P6,    KC_AMPR, //25
         KC_F9,   KC_F10,   H_TTY,    KC_LOCK, KC_HOME,  KC_END ,  MO(_GREEK), KC_LSFT,  KC_SCLN,     KC_Q,     KC_J,     KC_K,    KC_X,     KC_B,    KC_M,     KC_W, KC_V,   KC_Z,  KC_RSFT, MO(_GREEK),KC_UP,    KC_END,                                                              KC_P1,     KC_P2,    KC_P3,    KC_EQL,  //26
-        KC_F11,  KC_F12,   KC_HOME,  H_EOF,   KC_MPRV,  KC_MNXT,  H_7BIT,  KC_LALT,  KC_HYPR,  KC_LGUI,  KC_LCTL,  KC_SPC,  H_CIRCLE_SM,  KC_DEL,  KC_RCTL,  KC_RGUI, KC_HYPR,  KC_RGUI,  KC_LEFT, KC_DOWN, KC_RGHT,                                                                        KC_DEL,    KC_P0,    KC_PDOT,  KC_ENTER //25
+        KC_F11,  KC_F12,   KC_HOME,  H_EOF,   KC_MPRV,  KC_MNXT,  H_SMOL,  KC_LALT,  KC_HYPR,  KC_LGUI,  KC_LCTL,  KC_SPC,  H_CIRCLE_SM,  KC_SPC,  KC_RCTL,  KC_RGUI, KC_HYPR,  KC_RGUI,  KC_LEFT, KC_DOWN, KC_RGHT,                                                                        KC_DEL,    KC_P0,    KC_PDOT,  KC_ENTER //25
     ),
     /* _APL: Cadet Symbol Layer (Default)
      * ,-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------.
@@ -520,7 +520,7 @@ void matrix_scan_keymap(void) {
 
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch(keycode) {
       // [daughter board] row 1 POS key macros
@@ -553,8 +553,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case H_HOLD_OUTPUT:
         send_string("[HOLD OUTPUT] key");
         return false;
-      case H_STOP_OUTPUT:
-        send_string("[STOP OUTPUT] key");
+      case H_STOP_INPUT:
+        send_string("[STOP INPUT] key");
         return false;
       case H_ABORT:
         send_string(SS_LCTL(SS_TAP(X_C)));
@@ -582,8 +582,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case H_REFRESH:
         send_string(SS_LCTL(SS_TAP(X_R)));
         return false;
-      case H_BUFFER:
-        send_string("[BUFFER] key");
+      case H_BUFFERS:
+        send_string("[BUFFERS] key");
         return false;
       case H_SQUARE:
         send_string("[SQUARE] key");
@@ -734,8 +734,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case H_EOF:
         send_string(SS_LCTL(SS_TAP(X_END)));
         return false;
-      case H_7BIT:
-        send_string("[SMOL] key"); // as marked on this version of the keycap
+      case H_SMOL:
+        send_string("[SMOL] key");
         return false;
       case H_CIRCLE_SM:
         send_string("[CIRCLE_SM] key");
