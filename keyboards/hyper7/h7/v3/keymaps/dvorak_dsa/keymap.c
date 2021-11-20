@@ -29,13 +29,13 @@ enum unicode_names {
     DQUOTE_OPEN,
     DQUOTE_CLOSE,
     PRIME,
-    PIPE,
+    STILE,
 
 // APL
-    N_ARY_LOGICAL_AND,
-    N_ARY_LOGICAL_OR,
-    N_ARY_INTERSECT,
-    N_ARY_UNION,
+    LOGICAL_AND,
+    LOGICAL_OR,
+    INTERSECT,
+    UNION,
     SUBSET_OF,
     SUPERSET_OF,
     FORALL,
@@ -145,6 +145,13 @@ enum unicode_names {
     INTEGRAL,
 };
 
+/*
+  APL predates Unicode, so it isn't always obvious what Unicode symbol to use
+  for a particular APL symbol.
+
+  https://www.unicode.org/Public/MAPPINGS/VENDORS/MISC/APL-ISO-IR-68.TXT is a
+  canonical reference from the Unicode Consortium from 2020 on the subject.
+ */
 const uint32_t PROGMEM unicode_map[] = {
 // Unicode char definitions
     [AT_SYMBOL] = 0x0040,
@@ -160,13 +167,13 @@ const uint32_t PROGMEM unicode_map[] = {
     [DQUOTE_OPEN] = 0x201C,
     [DQUOTE_CLOSE] = 0x201D,
     [PRIME] = 0x2019,
-    [PIPE] = 0x2502,
+    [STILE] = 0x2223,
 
 // APL
-    [N_ARY_LOGICAL_AND] = 0x22C0,
-    [N_ARY_LOGICAL_OR] = 0x22C1,
-    [N_ARY_INTERSECT] = 0x22C2,
-    [N_ARY_UNION] = 0x22C3,
+    [LOGICAL_AND] = 0x2227,
+    [LOGICAL_OR] = 0x2228,
+    [INTERSECT] = 0x2229,
+    [UNION] = 0x222A,
     [SUBSET_OF] = 0x2282,
     [SUPERSET_OF] = 0x2283,
     [FORALL] = 0x2200,
@@ -386,7 +393,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_h7v3_183(
         H_HELP,            H_MACRO,           H_TERMINAL,           H_QUOTE,             H_OVERSTRIKE,            H_CLEAR_INPUT,           H_CLEAR_SCREEN,                 H_HOLD_OUTPUT,             H_STOP_OUTPUT,          H_ABORT,           H_BREAK,              H_RESUME,            H_CALL,              KC_NLCK,           //14
         H_LOCAL,           H_NETWORK,         H_SYSTEM,             H_REFRESH,           H_BUFFER,                H_SQUARE,                H_CIRCLE,                       H_TRIANGLE,                H_DIAMOND,              H_REPEAT,          H_TRANSMIT,           H_STATUS,            H_SUSPEND,           KC_CLCK,           //14
-        KC_F1,   KC_F2,    H_CLOSE,  H_OPEN,  KC_ESC,               KC_QUES,    KC_EXLM, X(AT_SYMBOL),    X(GBP), X(EURO),        X(JPY),  X(BACKTICK),    X(DQUOTE_OPEN), X(DQUOTE_CLOSE), X(PRIME), KC_UNDS,       KC_LABK, KC_RABK,  X(PIPE), KC_LCBR,    KC_RCBR,  H_COMPLETE,          KC_CIRC,   KC_PERC,  KC_HASH,  KC_DLR,  //26
+        KC_F1,   KC_F2,    H_CLOSE,  H_OPEN,  KC_ESC,               KC_QUES,    KC_EXLM, X(AT_SYMBOL),    X(GBP), X(EURO),        X(JPY),  X(BACKTICK),    X(DQUOTE_OPEN), X(DQUOTE_CLOSE), X(PRIME), KC_UNDS,       KC_LABK, KC_RABK,  X(STILE), KC_LCBR,    KC_RCBR,  H_COMPLETE,          KC_CIRC,   KC_PERC,  KC_HASH,  KC_DLR,  //26
 
         KC_F3,   KC_F4,    KC_FIND,  H_WRITE, KC_LEAD,  H_DOUBLE_QUOTE__PLUS_MINUS, H_COLON__TILDE,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,    KC_6,     KC_7,    KC_8,     KC_9,    KC_0,     KC_LBRC,  KC_RBRC,  KC_NUBS, H_L_BRACE__L_CHEVRON,  H_R_BRACE__R_CHEVRON,  KC_UNDO,    KC_TILD,   KC_BSLS,  KC_PAST,  KC_PMNS, //27
         KC_F5,   KC_F6,    KC_EXLM,  KC_UNDO, KC_PASTE, KC_CUT ,  KC_TAB ,  KC_QUOT,     KC_COMM,     KC_DOT,     KC_P,     KC_Y,    KC_F,     KC_G,    KC_C,     KC_R,    KC_L,     KC_SLSH,  KC_EQL, KC_BSPC, KC_CLEAR, KC_HOME,                                                                 KC_P7,     KC_P8,    KC_P9,    KC_PPLS, //26
@@ -421,9 +428,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FT,      FT,      FT,       FT,       FT,                 FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
 
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,  FT,  FT,  FT,  X(PARTIAL_DIFFERENTIAL), X(SUPERSET_OF), X(RIGHT_TACK), X(UPWARDS_ARROW), X(NOT_EQUAL_TO), X(N_ARY_INTERSECT), X(LEFTRIGHT_ARROW),      FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,  X(UP_TACK),  X(THERE_EXISTS), X(N_ARY_UNION), X(FORALL), X(LEMNISCATE),  X(RIGHT_TACK), X(DOWNARDS_ARROW),  X(SUBSET_OF), X(LESS_THAN_OR_EQUAL), X(DOWN_TACK),       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,  FT,  X(N_ARY_LOGICAL_AND),  X(LEFTWARDS_ARROW), X(RIGHTWARDS_ARROW), X(LEFT_CEILING), X(NOT_ASYMPTOTICALLY_EQUAL_TO), X(GREATER_THAN_OR_EQUAL), X(N_ARY_LOGICAL_OR), X(ASYMPTOTICALLY_EQUAL_TO), X(LEFT_FLOOR),       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,  FT,  FT,  FT,  X(PARTIAL_DIFFERENTIAL), X(SUPERSET_OF), X(RIGHT_TACK), X(UPWARDS_ARROW), X(NOT_EQUAL_TO), X(INTERSECT), X(LEFTRIGHT_ARROW),      FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,  X(UP_TACK),  X(THERE_EXISTS), X(UNION), X(FORALL), X(LEMNISCATE),  X(RIGHT_TACK), X(DOWNARDS_ARROW),  X(SUBSET_OF), X(LESS_THAN_OR_EQUAL), X(DOWN_TACK),       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT,
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,  FT,  X(LOGICAL_AND),  X(LEFTWARDS_ARROW), X(RIGHTWARDS_ARROW), X(LEFT_CEILING), X(NOT_ASYMPTOTICALLY_EQUAL_TO), X(GREATER_THAN_OR_EQUAL), X(LOGICAL_OR), X(ASYMPTOTICALLY_EQUAL_TO), X(LEFT_FLOOR),       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT
     ),
     /* _GREEK: lower/upper case greek (needs shift modifier application for upper case chars) from codepage U0370.pdf \
