@@ -377,7 +377,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * | F9  | F10 | TTY |LOCK |#|Begin| End | Symbol | Shift  |  ;  |  Q  |  J  |  K  |  X  |  B  |  M  |  W  |  V  |  Z  | Shift  | Symbol |  Up | End |#|  1  |  2  |  3  |  =  |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     * | F11 | F12 |Home | EOF |#|Prev |Next |Smol | Alt | Hyper  | Spr |  Ctrl  | Space |TRNS | Space  |  Ctrl  | Spr  | Hyper  |Meta |Left |Down |Right|#| Del |  0  |  .  | Run |
+     * | F11 | F12 |Home | EOF |#|Prev |Next |Smol | Alt | Hyper  | Spr |  Ctrl  | Space |TRNS | Space  |  Ctrl  | Spr  | Hyper  |Meta |Left |Down |Right|#| Del |  0  |  .  | Fun |
      * `-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      *  Incomplete mappings
      *  r1: H_MACRO, H_TERMINAL, H_OVERSTRIKE, H_HOLD_OUTPUT, H_STOP_INPUT, H_CALL
