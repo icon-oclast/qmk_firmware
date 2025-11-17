@@ -7,6 +7,11 @@
 		"rows": 8,
 		"cols": 28
 	},
+	"customKeycodes": [
+		{ "name": "Quote",    "title": "Quote",       "shortName": "QUOTE" },
+		{ "name": "Clear",    "title": "Clear Input", "shortName": "CLRIN" },
+		{ "name": "+-",       "title": "Plus Minus",  "shortName": "PLUSM" }
+	],
 	"layouts": {
 		"labels": [
 			[
