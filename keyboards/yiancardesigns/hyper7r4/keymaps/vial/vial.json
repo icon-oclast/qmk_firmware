@@ -8,9 +8,9 @@
 		"cols": 28
 	},
 	"customKeycodes": [
-		{ "name": "Quote",    "title": "Quote",       "shortName": "QUOTE" },
-		{ "name": "Clear",    "title": "Clear Input", "shortName": "CLRIN" },
-		{ "name": "+-",       "title": "Plus Minus",  "shortName": "PLUSM" }
+		{ "name": "QUOTE", "title": "Put quotes around cursor",     "shortName": "Quote" },
+		{ "name": "CLRIN", "title": "Clear input in current field", "shortName": "Clear" },
+		{ "name": "PLUSM", "title": "Write a plus and minus",       "shortName": "+-" }
 	],
 	"layouts": {
 		"labels": [
