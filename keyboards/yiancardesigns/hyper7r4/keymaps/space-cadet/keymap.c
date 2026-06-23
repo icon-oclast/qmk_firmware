@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#include "v3.h"
+#include "v4.h"
 
 // Brevity defines
 #define FT KC_TRNS
@@ -288,7 +288,7 @@ const uint32_t PROGMEM unicode_map[] = {
 #define _FN 3     // FN & media keys
 
 enum custom_keycodes {
-    // daughter board R1
+    // daughter board row1
     H_HELP = SAFE_RANGE,
     H_MACRO,
     H_TERMINAL,
@@ -303,7 +303,7 @@ enum custom_keycodes {
     H_RESUME,
     H_CALL,
 
-    // daughter board R2
+    // daughter board row2
     H_LOCAL,
     H_NETWORK,
     H_SYSTEM,
@@ -318,24 +318,24 @@ enum custom_keycodes {
     H_STATUS,
     H_SUSPEND,
 
-    // daughter board r3
+    // daughter board row3
     H_CLOSE,
     H_OPEN,
     H_COMPLETE,
 
-    // main board r1
+    // main board row1
     H_WRITE,
     H_DOUBLE_QUOTE__PLUS_MINUS,
     H_COLON__TILDE,
     H_L_BRACE__L_CHEVRON,
     H_R_BRACE__R_CHEVRON,
 
-    // main board r2
+    // main board row2
     H_MARK,
     H_LEFT_PAREN__LEFT_BRACKET,
     H_RIGHT_PAREN__RIGHT_BRACKET,
 
-    // main board r3
+    // main board row3
     H_SELECT,
     H_DEBUG,
     H_SEMI_COLON__BACK_TICK,
@@ -343,11 +343,11 @@ enum custom_keycodes {
     H_LINE,
     H_PAGE,
 
-    // main board r4
+    // main board row4
     H_TTY,
     H_LOCK, // lock machine? a little close to other used keys on a single keypress?
 
-    // main board r5
+    // main board row5
     H_EOF,
     H_7BIT,
     H_CIRCLE_SM
@@ -385,7 +385,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *  r4: H_TTY
      *  r2: H_7BIT, H_CIRCLE_SM
      */
-    [_BASE] = LAYOUT_h7v3_183(
+    [_BASE] = LAYOUT_h7v4_classic_183(
         H_HELP,            H_MACRO,           H_TERMINAL,           H_QUOTE,             H_OVERSTRIKE,            H_CLEAR_INPUT,           H_CLEAR_SCREEN,                 H_HOLD_OUTPUT,             H_STOP_OUTPUT,          H_ABORT,           H_BREAK,              H_RESUME,            H_CALL,              KC_NUM_LOCK,           //14
         H_LOCAL,           H_NETWORK,         H_SYSTEM,             H_REFRESH,           H_BUFFER,                H_SQUARE,                H_CIRCLE,                       H_TRIANGLE,                H_DIAMOND,              H_REPEAT,          H_TRANSMIT,           H_STATUS,            H_SUSPEND,           KC_CAPS_LOCK,           //14
         KC_F1,   KC_F2,    H_CLOSE,  H_OPEN,  KC_ESC,               KC_QUES,    KC_EXLM, UM(AT_SYMBOL),    UM(GBP), UM(EURO),        UM(JPY),  UM(BACKTICK),    UM(DQUOTE_OPEN), UM(DQUOTE_CLOSE), UM(PRIME), KC_UNDS,       KC_LABK, KC_RABK,  UM(PIPE), KC_LCBR,    KC_RCBR,  H_COMPLETE,          KC_CIRC,   KC_PERC,  KC_HASH,  KC_DLR,  //26
@@ -417,7 +417,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |     |     |     |     |#|     |     |     |     |        |     |        |        |     |        |        |     |        |     |     |     |     |#|     |     |     |     |
      * `-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      */
-    [_APL] = LAYOUT_h7v3_183(
+    [_APL] = LAYOUT_h7v4_classic_183(
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,      FT,      FT,       FT,       FT,                 FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
@@ -450,7 +450,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |     |     |     |     |#|     |     |     |     |        |     |        |        |     |        |        |     |        |     |     |     |     |#|     |     |     |     |
      * `-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      */
-    [_GREEK] = LAYOUT_h7v3_183(
+    [_GREEK] = LAYOUT_h7v4_classic_183(
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,      FT,      FT,       FT,       FT,                 FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,       FT,       FT,      FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
@@ -468,7 +468,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * |           |           |#|           |           |           |           |           |           |           |           |           |           |#|           |           |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     * |     |     |     |     |#|           |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |           |#|     |     |     |     |
+     * |     |     |     |     |#| QK_BOOT   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |           |#|     |     |     |     |
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      * |###############################################################################################################################################################################|
      * |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -483,10 +483,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |     |     |     |     |#|     |     |     |     |        |     |        |        |     |        |        |     |        |     |     |     |     |#|     |     |     |     |
      * `-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      */
-    [_FN] = LAYOUT_h7v3_183(
+    [_FN] = LAYOUT_h7v4_classic_183(
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,               FT,                 FT,                  FT,                RESET,
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,               FT,                 FT,                  FT,                FT,
-        FT,      FT,      FT,       FT,       FT,                 FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
+        FT,      FT,      FT,       FT,       QK_BOOT,            FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
 
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       UC_WIN,  FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
@@ -548,7 +548,7 @@ void leader_end_user(void) {
     }
 }
 
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch(keycode) {
       // [daughter board] row 1 POS key macros
@@ -774,6 +774,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
 };
 
-void led_set_keymap(uint8_t usb_led) {
-  // stub
-};
+// is this actually needed?
+//void led_set_keymap(uint8_t usb_led) {
+//  // stub
+//};
