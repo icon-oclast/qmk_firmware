@@ -1,7 +1,5 @@
 #include QMK_KEYBOARD_H
 
-#include "v4.h"
-
 // Brevity defines
 #define FT KC_TRNS
 
@@ -385,7 +383,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *  r4: H_TTY
      *  r2: H_7BIT, H_CIRCLE_SM
      */
-    [_BASE] = LAYOUT_h7v4_classic_183(
+    [_BASE] = LAYOUT_combined(
         H_HELP,            H_MACRO,           H_TERMINAL,           H_QUOTE,             H_OVERSTRIKE,            H_CLEAR_INPUT,           H_CLEAR_SCREEN,                 H_HOLD_OUTPUT,             H_STOP_OUTPUT,          H_ABORT,           H_BREAK,              H_RESUME,            H_CALL,              KC_NUM_LOCK,           //14
         H_LOCAL,           H_NETWORK,         H_SYSTEM,             H_REFRESH,           H_BUFFER,                H_SQUARE,                H_CIRCLE,                       H_TRIANGLE,                H_DIAMOND,              H_REPEAT,          H_TRANSMIT,           H_STATUS,            H_SUSPEND,           KC_CAPS_LOCK,           //14
         KC_F1,   KC_F2,    H_CLOSE,  H_OPEN,  KC_ESC,               KC_QUES,    KC_EXLM, UM(AT_SYMBOL),    UM(GBP), UM(EURO),        UM(JPY),  UM(BACKTICK),    UM(DQUOTE_OPEN), UM(DQUOTE_CLOSE), UM(PRIME), KC_UNDS,       KC_LABK, KC_RABK,  UM(PIPE), KC_LCBR,    KC_RCBR,  H_COMPLETE,          KC_CIRC,   KC_PERC,  KC_HASH,  KC_DLR,  //26
@@ -394,8 +392,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F5,   KC_F6,    KC_EXLM,  KC_UNDO, KC_PASTE, KC_CUT ,  KC_TAB ,  KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,    KC_Y,     KC_U,    KC_I,     KC_O,    KC_P,     KC_LPRN,  KC_RPRN, KC_BSPC, KC_CLEAR, KC_HOME,                                                                 KC_P7,     KC_P8,    KC_P9,    KC_PPLS, //26
         KC_F7,   KC_F8,    KC_SELECT,H_DEBUG, MO(_FN), KC_NO,       MO(_APL), KC_A,     KC_S,     KC_D,     KC_F,     KC_G,    KC_H,     KC_J,    KC_K,     KC_L,    H_SEMI_COLON__BACK_TICK,  KC_QUOT,  KC_ENT , H_LINE, H_PAGE,                                                           KC_P4,     KC_P5,    KC_P6,    KC_AMPR, //25
         KC_F9,   KC_F10,   H_TTY,    QK_LOCK, KC_HOME,  KC_END ,  MO(_GREEK), KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,    KC_B,     KC_N,    KC_M,     KC_COMM, KC_DOT,   KC_SLSH,  KC_RSFT, MO(_GREEK),KC_UP,    KC_END,                                                              KC_P1,     KC_P2,    KC_P3,    KC_EQL,  //26
-        KC_F11,  KC_F12,   KC_HOME,  H_EOF,   KC_MPRV,  KC_MNXT,  H_7BIT,  KC_LALT,  KC_HYPR,  KC_LGUI,  KC_LCTL,  KC_SPC,  H_CIRCLE_SM,  KC_DEL,  KC_RCTL,  KC_RGUI, KC_HYPR,  KC_RGUI,  KC_LEFT, KC_DOWN, KC_RGHT,                                                                        KC_DEL,    KC_P0,    KC_PDOT,  KC_ENTER //25
+        KC_F11,  KC_F12,   KC_HOME,  H_EOF,   KC_MPRV,  KC_MNXT,  H_7BIT,  KC_LALT,  KC_HYPR,  KC_LGUI,  KC_LCTL,  KC_SPC,  H_CIRCLE_SM,  KC_DEL,  KC_RCTL,  KC_RGUI, KC_HYPR,  KC_RGUI,  KC_LEFT, KC_DOWN, KC_RGHT,                                                                        KC_DEL,    KC_P0,    KC_PDOT,  KC_ENTER, //25
+                                                                                                                   KC_SPC
     ),
+
     /* _APL: Cadet Symbol Layer (Default)
      * ,---------------------------------------------------------------------------------------------------------------------------------------------------------------------------.
      * |           |           |#|           |           |           |           |           |           |           |           |           |           |#|           |           |
@@ -417,7 +417,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |     |     |     |     |#|     |     |     |     |        |     |        |        |     |        |        |     |        |     |     |     |     |#|     |     |     |     |
      * `---------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      */
-    [_APL] = LAYOUT_h7v4_classic_183(
+    [_APL] = LAYOUT_combined(
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,      FT,      FT,       FT,       FT,                 FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
@@ -426,7 +426,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FT,      FT,      FT,       FT,       FT,       FT,       FT,  UM(N_ARY_LOGICAL_AND), UM(N_ARY_LOGICAL_OR), UM(N_ARY_INTERSECT), UM(N_ARY_UNION), UM(SUBSET_OF),UM(SUPERSET_OF), UM(FORALL),UM(LEMNISCATE), UM(THERE_EXISTS),UM(PARTIAL_DIFFERENTIAL),      FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,  UM(UP_TACK), UM(DOWN_TACK), UM(RIGHT_TACK), UM(LEFT_TACK), UM(UPWARDS_ARROW),UM(DOWNARDS_ARROW), UM(LEFTWARDS_ARROW),UM(RIGHTWARDS_ARROW), UM(LEFTRIGHT_ARROW),     FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,  UM(LEFT_FLOOR), UM(LEFT_CEILING), UM(NOT_EQUAL_TO), UM(ASYMPTOTICALLY_EQUAL_TO),UM(NOT_ASYMPTOTICALLY_EQUAL_TO), UM(LESS_THAN_OR_EQUAL),UM(GREATER_THAN_OR_EQUAL),      FT,      FT,       FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT,
+                                                                                                          FT
     ),
 
     /* _GREEK: lower/upper case greek (needs shift modifier application for upper case chars) from codepage U0370.pdf \
@@ -450,7 +451,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |     |     |     |     |#|     |     |     |     |        |     |        |        |     |        |        |     |        |     |     |     |     |#|     |     |     |     |
      * `---------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      */
-    [_GREEK] = LAYOUT_h7v4_classic_183(
+    [_GREEK] = LAYOUT_combined(
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                FT,                FT,                 FT,                FT,               FT,                 FT,                  FT,                FT,
         FT,      FT,      FT,       FT,       FT,                 FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,       FT,       FT,      FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
@@ -459,7 +460,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FT,      FT,      FT,       FT,       FT,       FT,       FT,  UP(GREEK_LC_THETA, GREEK_UC_THETA), UP(GREEK_LC_OMEGA, GREEK_UC_OMEGA), UP(GREEK_LC_EPSILON, GREEK_UC_EPSILON), UP(GREEK_LC_RHO, GREEK_UC_RHO), UP(GREEK_LC_TAU, GREEK_UC_TAU),UP(GREEK_LC_PSI, GREEK_UC_PSI), UP(GREEK_LC_UPSILON, GREEK_UC_UPSILON),UP(GREEK_LC_IOTA, GREEK_UC_IOTA), UP(GREEK_LC_OMICRON, GREEK_UC_OMICRON),UP(GREEK_LC_PI, GREEK_UC_PI), UM(MATHEMATICAL_LEFT_WHITE_SQUARE_BRACKET), UM(MATHEMATICAL_RIGHT_WHITE_SQUARE_BRACKET),     FT,      FT,      FT,                            FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,  UP(GREEK_LC_ALPHA, GREEK_UC_ALPHA), UP(GREEK_LC_SIGMA, GREEK_UC_SIGMA), UP(GREEK_LC_DELTA, GREEK_UC_DELTA), UP(GREEK_LC_PHI, GREEK_UC_PHI), UP(GREEK_LC_GAMMA, GREEK_UC_GAMMA),UP(GREEK_LC_ETA, GREEK_UC_ETA), UP(GREEK_LC_YOT, GREEK_UC_YOT),UP(GREEK_LC_KAPPA, GREEK_UC_KAPPA), UP(GREEK_LC_LAMDA, GREEK_UC_LAMDA), UM(TWO_DOT_LEADER), UM(BULLET),      FT,      FT,      FT,                                     FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       FT,       FT,  FT,  UP(GREEK_LC_ZETA, GREEK_UC_ZETA), UP(GREEK_LC_XI, GREEK_UC_XI), UP(GREEK_LC_CHI, GREEK_UC_CHI), UP(GREEK_LC_FINAL_SIGMA, GREEK_UC_SIGMA),UP(GREEK_LC_BETA, GREEK_UC_BETA), UP(GREEK_LC_NU, GREEK_UC_NU),UP(GREEK_LC_MU, GREEK_UC_MU), UM(MUCH_LESS_THAN),UM(MUCH_GREATER_THAN), UM(INTEGRAL),      FT,      FT,      FT,      FT,                            FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,                                     FT,      FT,       FT,      FT
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,       FT,      FT,       FT,      FT,       FT,       FT,      FT,      FT,                                     FT,      FT,       FT,      FT,
+                                                                                                          FT
     ),
 
     /* _FN: Function layer, media & LED mods
@@ -483,7 +485,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |     |     |     |     |#|     |     |     |     |        |     |        |        |     |        |        |     |        |     |     |     |     |#|     |     |     |     |
      * `---------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
      */
-    [_FN] = LAYOUT_h7v4_classic_183(
+    [_FN] = LAYOUT_combined(
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,               FT,                 FT,                  FT,                RESET,
         FT,               FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,                 FT,               FT,                 FT,                  FT,                FT,
         FT,      FT,      FT,       FT,       QK_BOOT,            FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,       FT,       FT,                  FT,      FT,       FT,      FT,
@@ -492,7 +494,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       UC_WIN,  FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
         FT,      FT,      FT,       FT,       FT,       UC_NEXT,   FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       UC_LINX,  FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT,
         FT,      FT,      FT,       H_LOCK,   FT,       FT,       FT,       FT,       FT,       FT,       UC_WINC,  FT,       FT,       FT,       UC_MAC,  FT,       FT,       FT,       FT,      FT,      FT,       FT,                            FT,      FT,       FT,      FT,
-        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT
+        FT,      FT,      FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,       FT,      FT,      FT,                                      FT,      FT,       FT,      FT,
+                                                                                                          FT
     )
 };
 
