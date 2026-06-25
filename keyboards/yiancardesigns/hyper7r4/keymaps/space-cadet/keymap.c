@@ -325,7 +325,7 @@ enum custom_keycodes {
     H_STATUS,
     H_SUSPEND,
 
-    // daughter board row2
+    // daughter board row 2
     H_CLOSE,
     H_OPEN,
     H_COMPLETE,
@@ -508,39 +508,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-// The leader key handling has changed significantly in upstream QMK
-// so, this is still a work in progress as I attempt to unravel the changes.
-
-// activate leader functionality
-// LEADER_EXTERNS();
-
-// void matrix_scan_keymap(void) {
-//   LEADER_DICTIONARY() {
-//     leading = false;
-//     leader_end();
-//
-//     // slash :: find
-//     SEQ_ONE_KEY(KC_SLASH) {
-//       SEND_STRING(SS_LCTRL(SS_TAP(X_F)));
-//     }
-//
-//     // Copy word
-//     SEQ_TWO_KEYS(KC_W, KC_C) {
-//       SEND_STRING(SS_LCTRL(SS_TAP(X_LEFT))SS_LSFT(SS_LCTRL(SS_TAP(X_RIGHT)))SS_LCTRL(SS_TAP(X_C)));
-//     }
-//     // Copy line
-//     SEQ_TWO_KEYS(KC_L, KC_C) {
-//       SEND_STRING(SS_TAP(X_HOME)SS_LSFT(SS_TAP(X_END))SS_LCTRL(SS_TAP(X_C)));
-//     }
-//     // Copy all
-//     SEQ_TWO_KEYS(KC_A, KC_C) {
-//       SEND_STRING(SS_LCTRL(SS_TAP(X_A)SS_TAP(X_C)));
-//     }
-//   }
-//
-// }
-
-// The newer style of QMK handling for leader keys
+// The compose key is set as a leader key
+// The sequences below are inherited from r3
 void leader_end_user(void) {
     // slash :: find
     if (leader_sequence_one_key(KC_SLASH)) {
@@ -773,8 +742,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   return true;
 };
-
-// is this actually needed?
-//void led_set_keymap(uint8_t usb_led) {
-//  // stub
-//};
