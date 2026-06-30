@@ -1,5 +1,10 @@
 #include QMK_KEYBOARD_H
 
+// cheatsheet for sendstring
+// Dvorak by default. If you're using a different layout,
+// replace this with the one you want.
+#include "sendstring_dvorak.h"
+
 // Brevity defines
 #define FT KC_TRNS
 

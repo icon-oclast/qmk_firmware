@@ -1,5 +1,9 @@
 #include QMK_KEYBOARD_H
 
+// cheatsheet for sendstring.
+// not actually needed here as we're remapping locally ourselves.
+// #include "sendstring_dvorak.h"
+
 // Brevity defines
 #define FT KC_TRNS
 
